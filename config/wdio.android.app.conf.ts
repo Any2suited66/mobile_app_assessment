@@ -1,36 +1,35 @@
-import { join } from 'path';
-import config from './wdio.shared.local.appium.conf';
 
-// ============
-// Specs
-// ============
-config.specs = [
-    './tests/specs/**/app*.spec.ts',
-];
-
-// ============
-// Capabilities
-// ============
-// For all capabilities please check
-// http://appium.io/docs/en/writing-running-appium/caps/#general-capabilities
-config.capabilities = [
-    {
-        // The defaults you need to have in your config
-        platformName: 'Android',
-        maxInstances: 1,
-        // For W3C the appium capabilities need to have an extension prefix
-        // http://appium.io/docs/en/writing-running-appium/caps/
-        // This is `appium:` for all Appium Capabilities which can be found here
-        'appium:deviceName': 'Pixel_3_10.0',
-        'appium:platformVersion': '10.0',
-        'appium:orientation': 'PORTRAIT',
-        'appium:automationName': 'UiAutomator2',
-        // The path to the app
-        'appium:app': join(process.cwd(), './apps/AwesomeApp.apk'),
-        // @ts-ignore
-        'appium:appWaitActivity': 'com.awesomeapp.MainActivity',
-        'appium:newCommandTimeout': 240,
-    },
-];
-
-exports.config = config;
+exports.config = {
+    user: process.env.BROWSERSTACK_USERNAME || 'tylerhackett_a7GXm6',
+    key: process.env.BROWSERSTACK_ACCESS_KEY || 'EBpqyXcaHWhmHopJMD6e',
+  
+    updateJob: false,
+    specs: [
+        './tests/specs/**/app*.spec.ts',
+    ],
+    exclude: [],
+  
+    capabilities: [{
+      project: "First Webdriverio Android Project",
+      build: 'Webdriverio Android',
+      name: 'first_test',
+      device: 'Google Pixel 3',
+      os_version: "9.0",
+      app: process.env.BROWSERSTACK_APP_ID || 'bs://837239c1be35342da032472845ef267eb56ba783',
+      'browserstack.debug': true
+    }],
+  
+    logLevel: 'info',
+    coloredLogs: true,
+    screenshotPath: './errorShots/',
+    baseUrl: '',
+    waitforTimeout: 10000,
+    connectionRetryTimeout: 90000,
+    connectionRetryCount: 3,
+  
+    framework: 'mocha',
+    mochaOpts: {
+      ui: 'bdd',
+      timeout: 20000
+    }
+  };

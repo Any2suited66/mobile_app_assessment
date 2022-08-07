@@ -20,17 +20,29 @@ class HomePage extends Page {
         return this.platformLocator(androidSelector, iosSelector)
     }
 
-    platformLocator(androidSelector: string, iosSelector: string) { 
-        const selector = driver.isAndroid ? androidSelector : iosSelector;
-        return $(`${selector}`)
-        }
-    
-    
-    get dashboard_ios () { return $('~Dashboard tab'); }
-    get dashboard_android () { return $('//*[@text="Dashboard"]')}
-    get settings_ios () { return $('~Settings tab'); }
-    get settings_android () { return $('//*[@text="Settings"]')}
-    
+    get nativeAlert() { 
+        const androidSelector = '//*[@resource-id="android:id/alertTitle"]'
+        const iosSelector = '~OK'
+        return this.platformLocator(androidSelector, iosSelector)
+    }
+
+
+    get sideMenuButton() {
+        const androidSelector = '//*[@resource-id="sidemenuButton"]'
+        const iosSelector = '~sidemenuButton'
+        return this.platformLocator(androidSelector, iosSelector)
+    }
+
+    static async waitForInstructionsTab ():Promise<boolean|void> {
+        const androidSelector = '//*[@text="Instructions"]'
+        const iosSelector = '~Instructions tab'    
+        return $(androidSelector, iosSelector).waitForDisplayed({
+            timeout: 2000,
+        })
+    }
+
+
+   
     async open():Promise<string> {
         return super.open('homePage');
     }
