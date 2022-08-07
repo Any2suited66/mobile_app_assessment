@@ -28,7 +28,6 @@ describe('open the app and validate the dashboard and settings tabs load', () =>
     })
 
     it('validate user menu slides out', async () => {
-        await HomePage.waitForInstructionsTab
         await Gestures.swipeOnPercentage({x:5, y:50}, {x:95, y:50});
         await HomePage.sideMenuButton.click()
         await expect(HomePage.nativeAlert).toBeExisting();
