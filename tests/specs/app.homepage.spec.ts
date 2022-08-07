@@ -3,7 +3,7 @@ import DashboardPage from '../pageobjects/dashboard'
 import Gestures from  '../Gestures'
 import Settings from '../pageobjects/settings'
 
-describe('open the app and validate the dashboard and settings tabs load', () => {
+describe('open the app and validate the interactions ', () => {
     beforeEach(async() => {
             await HomePage.instructions.isDisplayed
     })

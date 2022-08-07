@@ -110,7 +110,6 @@
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ["spec"],
     // Options to be passed to Mocha.
     mochaOpts: {
         ui: "bdd",
@@ -136,12 +135,12 @@
     reporters: [['allure', {
         outputDir: 'allure-test-results',
         disableWebdriverStepsReporting: true,
-        disableWebdriverScreenshotsReporting: true,
-    }]],
+        disableWebdriverScreenshotsReporting: false,
+    }], "spec"],
 
     afterTest: function(test, context, { error, result, duration, passed, retries }) {
         if (!passed) {
-            driver.saveScreenshot('./tests/screenshots/failed_' + test.title + '.png');
+            driver.saveScreenshot('./tests/screenshots/failed_' + test.title + Date.now() + '.png');
         }
     },
 
