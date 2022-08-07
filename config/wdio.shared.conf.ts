@@ -132,4 +132,11 @@
     /**
      * NOTE: No Hooks are used in this project, but feel free to add them if you need them.
      */
+
+     afterTest: function(test, context, { error, result, duration, passed, retries }) {
+        if (!passed) {
+            console.log('test failed! asldfkasfd')
+            driver.saveScreenshot('./tests/screenshots/failed_' + test.title + '.png');
+        }
+    },
 };
