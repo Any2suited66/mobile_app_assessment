@@ -6,6 +6,7 @@ Instructions
 Run `npm install`
 
 Total of 4 tests on Android and iOS
+
 1 Failures - Timeout exception to show screenshot saved on failure
 
 Mobile Test:
