@@ -2,10 +2,11 @@
 take home assessment
 
 Instructions
+
 Run `npm install`
 
 Total of 4 tests on Android and iOS
-1 Failures - 1. Timeout exception to show screenshot saved on failure
+1 Failures - Timeout exception to show screenshot saved on failure
 
 Mobile Test:
 - Launch app and verify the Dashboard and Settings screen loads correctly
