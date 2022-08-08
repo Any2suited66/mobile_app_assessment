@@ -4,15 +4,7 @@ import Gestures from  '../Gestures'
 import Settings from '../pageobjects/settings'
 
 describe('open the app and validate the interactions ', () => {
-    beforeEach(async() => {
-            await HomePage.instructions.isDisplayed
-    })
-
-    it('validate settings and dashboard tabs load on homescreen', async () => {
-        await expect(HomePage.dashboardTab).toBeExisting();
-        await expect(HomePage.settingsTab).toBeExisting();
-    });
-
+   
     it('validate dashboard screen loads', async () => {
         await HomePage.dashboardTab.click()
         await expect(DashboardPage.dashboardTitle).toBeExisting();
