@@ -18,3 +18,5 @@ Mobile Test:
 Todo:
 - Find solution to mark results in Browserstack for each test
 - Look up best practices to separate the tests but it works for now
+=======
+take home assessment

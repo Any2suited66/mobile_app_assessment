@@ -8,9 +8,9 @@ export default class Page {
         const selector = driver.isAndroid ? androidSelector : iosSelector;
         return $(`${selector}`)
         }
-    
+
+
         
-    
 }
 
 
